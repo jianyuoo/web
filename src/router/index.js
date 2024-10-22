@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import Login from '../views/UsersLogin.vue'
+// import Login from '../views/UsersLogin.vue'
+import Login from '../views/xiaogou_index.vue'
 // import Register from '../views/Register.vue'
 // import Index from '../views/Index.vue'
 // import Appointment from '../views/Appointment.vue'
