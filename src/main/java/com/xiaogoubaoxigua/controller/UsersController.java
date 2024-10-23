@@ -1,0 +1,33 @@
+package com.xiaogoubaoxigua.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.xiaogoubaoxigua.po.Users;
+import com.xiaogoubaoxigua.service.UsersService;
+
+@RestController
+@RequestMapping("/users")
+public class UsersController {
+
+    @Autowired
+    private UsersService usersService;
+
+    @RequestMapping("/getUsersByUserIdByPass")
+    public Users getUsersByUserIdByPass(@RequestBody Users users) {
+        return usersService.getUsersByUserIdByPass(users);
+    }
+
+
+    @RequestMapping("/getUsersById")
+    public Users getUsersById(@RequestBody Users users) {
+        return usersService.getUsersById(users.getUserId());
+    }
+
+    @RequestMapping("/saveUsers")
+    public int saveUsers(@RequestBody Users users) {
+        return usersService.saveUsers(users);
+    }
+}
