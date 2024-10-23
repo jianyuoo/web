@@ -1,6 +1,8 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-// import Login from '../views/UsersLogin.vue'
-import Login from '../views/xiaogou_index.vue'
+import Login from '../views/UsersLogin.vue'
+import Main from '../views/xiaogoumain.vue'; // 注意：同时保持组件名的正确大写
+
+
 // import Register from '../views/Register.vue'
 // import Index from '../views/Index.vue'
 // import Appointment from '../views/Appointment.vue'
@@ -16,9 +18,9 @@ import Login from '../views/xiaogou_index.vue'
 
 const routes = [
     {
-        path: '/',
-        name: 'home',
-        component: Login
+        path: '/xiaogoumain',
+        name: 'main',
+        component: Main
     },{
         path: '/login',
         name: 'Login',
