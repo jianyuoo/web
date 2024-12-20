@@ -61,9 +61,9 @@
         </el-form-item>
       </el-form>
       <div class="login-btn">
-          <el-button type="success" @click="getLogin(ruleFormRef)">登录</el-button>
-          <el-button type="primary" @click="isRegister = true">注册</el-button>
-        </div>
+        <el-button type="success" @click="getLogin(ruleFormRef)">登录</el-button>
+        <el-button type="primary" @click="isRegister = true">注册</el-button>
+      </div>
     </div>
   </div>
 </template>
@@ -82,22 +82,22 @@
 
 .login-box {
   display: flex;
-  flex-direction: column;  
+  flex-direction: column;
   width: 460px;
   background-color: white;
   margin: auto;
   padding: 40px;
   border: 1px solid rgb(98, 95, 95);
-  border-radius: 10px; 
+  border-radius: 10px;
   box-shadow: 20px 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .login-btn {
-  display: flex;               
-  justify-content: center;    
+  display: flex;
+  justify-content: center;
   margin-top: 10px;
   font-size: 30px;
-           
+
 }
 
 .login-title {
@@ -105,7 +105,6 @@
   text-align: center;
   margin-bottom: 10px;
 }
-
 </style>
 
 <script lang="ts" setup>
@@ -113,7 +112,7 @@ import { ref, onMounted, reactive } from 'vue';
 import { useRouter } from 'vue-router';
 import { ElMessage } from 'element-plus';
 import useTokenStore from '../stores/useToken'
-import api from '@/utils/request'
+import api from '../utils/request'
 import type { FormInstance, FormRules } from 'element-plus'
 const ruleFormRef = ref<FormInstance>()
 
@@ -170,6 +169,7 @@ const getLogin = async (formEl: FormInstance | undefined) => {
   })
 
   let { data } = await api.post('/v1/login', loginFrom.value)
+  
 
   if (data.code == 200 ) {
     ElMessage('登录成功')
@@ -177,7 +177,6 @@ const getLogin = async (formEl: FormInstance | undefined) => {
     tokenStore.token = data.data
     router.replace({ name: 'layout' })
   } else {
-
     ElMessage('登录失败')
   }
 
@@ -188,7 +187,7 @@ const getLogin = async (formEl: FormInstance | undefined) => {
 const getCode = async () => {
   let { data } = await api.get('/v1/captcha')
 
-  loginFrom.value.codeKey = data.data.codeKey
+  loginFrom.value.codeKey = data.data.codeKey 
   codeImage.value = data.data.codeValue
 
 }
