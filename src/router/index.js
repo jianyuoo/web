@@ -16,6 +16,11 @@ const router = createRouter({
       path: '/healthy',
       name: 'healthy',
       component: () => import('@/components/Healthy.vue')
+    },
+    {
+      path: '/system',
+      name: 'system',
+      component: () =>import('../views/system.vue')
     }
   ]
 })
