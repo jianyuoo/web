@@ -73,7 +73,7 @@
 .container {
   display: flex;
   position: absolute;
-  background-image: url('/src/assets/images/login/login-bg.png');
+  background-image: url("src/assets/images/logo-BsTXx7oy.png");
   bottom: 0;
   top: 0;
   left: 0;
